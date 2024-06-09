@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li>Dashboard</li>
+                <li>Students</li>
+                <li>Teachers</li>
+                <li>Classes</li>
+                <li>Settings</li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Students</h1>
+                <div class="header-buttons">
+                    <button>Notification</button>
+                    <button>Profile</button>
+                </div>
+            </header>
+            <div class="search-add">
+                <input type="text" id="search" placeholder="Search">
+                <button>Add a student</button>
+            </div>
+            <table id="student-table">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Year Group</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Students will be populated here by JavaScript -->
+                </tbody>
+            </table>
+            <div class="pagination" id="pagination"></div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
