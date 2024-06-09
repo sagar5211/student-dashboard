@@ -1,26 +1,17 @@
+const students = [
+    { id: 12289, first_name: 'Daisy', last_name: 'Scott', email: 'daisy22@gmail.com', phone: '+442146886341', year_group: 'Grade 10', photo: 'https://via.placeholder.com/50' },
+    { id: 12288, first_name: 'Isabel', last_name: 'Harris', email: 'isabel887@gmail.com', phone: '+442251886322', year_group: 'Grade 12', photo: 'https://via.placeholder.com/50' },
+    { id: 12287, first_name: 'Dan', last_name: 'Thomas', email: 'dan87675@gmail.com', phone: '+442445823555', year_group: 'Grade 12', photo: 'https://via.placeholder.com/50' },
+    { id: 12286, first_name: 'Debra', last_name: 'Nelson', email: 'debra1212@gmail.com', phone: '+442342292343', year_group: 'Grade 11', photo: 'https://via.placeholder.com/50' },
+    { id: 12285, first_name: 'Vera', last_name: 'Cooper', email: 'vera8888@gmail.com', phone: '+442118925444', year_group: 'Grade 12', photo: 'https://via.placeholder.com/50' },
+    { id: 12284, first_name: 'Brian', last_name: 'Miller', email: 'brian5564@gmail.com', phone: '+442423326311', year_group: 'Grade 12', photo: 'https://via.placeholder.com/50' },
+    { id: 12283, first_name: 'Lauren', last_name: 'Martin', email: 'lauren7712@gmail.com', phone: '+442898235622', year_group: 'Grade 10', photo: 'https://via.placeholder.com/50' },
+    { id: 12282, first_name: 'Milton', last_name: 'Smith', email: 'milton2244@gmail.com', phone: '+442044975177', year_group: 'Grade 12', photo: 'https://via.placeholder.com/50' },
+    { id: 12281, first_name: 'Molly', last_name: 'White', email: 'molly4747@gmail.com', phone: '+442041996398', year_group: 'Grade 12', photo: 'https://via.placeholder.com/50' }
+];
+
 const studentsPerPage = 5;
 let currentPage = 1;
-let students = [];
-
-// Function to fetch students from API
-async function fetchStudents() {
-    try {
-        const response = await fetch('http://3.223.98.72:1337/api/students');
-        const data = await response.json();
-        students = data.data.map(student => ({
-            id: student.id,
-            first_name: student.attributes.first_name,
-            last_name: student.attributes.last_name,
-            email: student.attributes.email,
-            phone: student.attributes.phone,
-            year_group: student.attributes.year_group,
-            photo: student.attributes.photo ? student.attributes.photo : 'https://via.placeholder.com/50'
-        }));
-        displayStudents(currentPage);
-    } catch (error) {
-        console.error('Error fetching student data:', error);
-    }
-}
 
 function displayStudents(page) {
     const startIndex = (page - 1) * studentsPerPage;
@@ -74,4 +65,4 @@ document.getElementById('search').addEventListener('input', (e) => {
     displayStudents(currentPage, filteredStudents);
 });
 
-fetchStudents();
+displayStudents(currentPage);
